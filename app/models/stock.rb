@@ -6,7 +6,7 @@ class Stock < ApplicationRecord
       secret_token: 'Tsk_8cf6ec8f5ecb4e3993b714f90fa29249',
       endpoint: 'https://sandbox.iexapis.com/v1')
 
-    client.price(ticker_symbol)
-  end
+    new(ticker: ticker_symbol, name: client.company(ticker_symbol).company_name, last_price: client.price(ticker_symbol))
+   end
 
 end

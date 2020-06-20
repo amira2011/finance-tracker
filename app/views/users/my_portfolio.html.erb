@@ -16,8 +16,8 @@
   <% end %>
 </div>
 <div id="results">
-
 </div>
 
-
- 
+<%  if !@stocks.empty? %>
+ <%= render 'stocks/list' %>
+<% end %>

@@ -9,6 +9,12 @@
   <strong>Symbol:</strong><%= @stock.ticker %>
   <strong>Name:</strong><%= @stock.name %>
   <strong>last_price:</strong><%= @stock.last_price %>
-  <%= link_to 'Add to Portfolio', user_stocks_path(user: current_user, ticker:  @stock.ticker), class: 'btn btn-success', method: :post %>
+  <% if current_user.can_track_stock?(@stock.ticker) %>
+      <%= link_to 'Add to Portfolio', user_stocks_path(user: current_user, ticker:  @stock.ticker), class: 'btn btn-success', method: :post %>
+  <% else %>
+    <span class="label">
+      You are Already Tracking
+    </span>
+  <% end %>
 </div>
 <% end %>

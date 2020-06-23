@@ -5,10 +5,46 @@
 
 
 <% if @stock %>
-<div class="card card-header result-block col-sm-9 no-right-padding">
-  <strong>Symbol:</strong><%= @stock.ticker %>
-  <strong>Name:</strong><%= @stock.name %>
-  <strong>last_price:</strong><%= @stock.last_price %>
+<div class="card card-header result-block col-sm-9  ">
+
+  <table class="table table-sm table-bordered">
+
+    <tbody>
+      <tr>
+
+        <td><b>Symbol:</b></td>
+        <td><%= @stock.ticker %></td>
+        <td><b>52 Week High</b></td>
+        <td><%= @client.key_stats(@stock.ticker).week_52_high %></td>
+      </tr>
+      <tr>
+
+        <td><b>Name:</b></td>
+        <td><%= @stock.name %></td>
+        <td><b>52 Week low</b></td>
+        <td><%= @client.key_stats(@stock.ticker).week_52_low %></td>
+      </tr>
+      <tr>
+        <td><b>last_price:</b></td>
+        <td><%= @stock.last_price %></td>
+
+        <td><b>P/E Ratio</b></td>
+        <td><%= @client.key_stats(@stock.ticker).pe_ratio %></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+
   <% if current_user.can_track_stock?(@stock.ticker) %>
       <%= link_to 'Add to Portfolio', user_stocks_path(user: current_user, ticker:  @stock.ticker), class: 'btn btn-success', method: :post %>
   <% else %>

@@ -1,5 +1,10 @@
 class StocksController < ApplicationController
   def search
+    @client = IEX::Api::Client.new(
+      publishable_token: 'Tpk_42731396d5fe4af5a5e5cdce8b83aab3',
+      secret_token: 'Tsk_8cf6ec8f5ecb4e3993b714f90fa29249',
+      endpoint: 'https://sandbox.iexapis.com/v1')
+      
     if params[:stock].present?
       @stock= Stock.new_lookup(params[:stock])
         if @stock

@@ -1,8 +1,35 @@
 
- 
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+ <script>
+   $( function() {
+     var availableTags =  <%=raw @names  %>;
+     $( "#tags" ).autocomplete({
+       source: availableTags
+     });
+   } );
+
+
+
+   </script>
+
+
+
+
+
+
 
 <h1>Welcome To Finance Tracker APP</h1>
    <%= link_to 'Go To Portfolio', my_portfolio_path, class: 'btn btn-success' %>
 <br>
 <br>
 <%= link_to 'Sign Out', destroy_user_session_path, class: 'btn btn-success', method: :delete %>
+
+
+<br>
+<br><br>
+<br>
+   <div class="ui-widget center">
+     <label for="tags"><b>Demo autocomplete <b></label>
+     <input id="tags" class="form-control form-control-lg">
+   </div>

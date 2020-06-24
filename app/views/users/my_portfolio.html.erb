@@ -1,10 +1,13 @@
+ 
+
+
 <h1>My Portfolio</h1>
 <div class="search-area">
 <h3> Search Stock <h3>
   <%= form_tag search_stock_path, remote:true, method: :get do %>
     <div class="form-group row">
       <div class="col-sm-9 no-right-padding">
-        <%= text_field_tag  :stock , params[:stock] , placeholder: "Search like AMZN, GOOG, MSFT.....", autofocus: true, class: "form-control form-control-lg" %>
+        <%= text_field_tag  :stock , params[:stock] , id: 'symbols', placeholder: "Search like AMZN, GOOG, MSFT.....", autofocus: true, class: "form-control form-control-lg"   %>
 
       </div>
       <div class="col-sm-3 no-left-padding">

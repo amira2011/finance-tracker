@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   @stocks=StockSymbol.all
   @names = Array.new
   @stocks.each do |s|
-    @names.push(s.name)
+  @names.push(s.name)
   end
 end
 end

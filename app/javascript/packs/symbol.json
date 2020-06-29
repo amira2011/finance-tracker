@@ -1,4 +1,4 @@
-[
+let data = [
   {
     "Name": "iShares MSCI All Country Asia Information Technology Index Fund",
     "Symbol": "AAIT"

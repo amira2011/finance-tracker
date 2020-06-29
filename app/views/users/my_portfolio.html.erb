@@ -1,4 +1,18 @@
- 
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+<script>
+  $( function() {
+    var availableTags =  <%=raw @names  %>;
+    $( "#symbols" ).autocomplete({
+      source: availableTags
+    });
+  } );
+</script>
+
+
+
+
 
 
 <h1>My Portfolio</h1>
@@ -7,8 +21,7 @@
   <%= form_tag search_stock_path, remote:true, method: :get do %>
     <div class="form-group row">
       <div class="col-sm-9 no-right-padding">
-        <%= text_field_tag  :stock , params[:stock] , id: 'symbols', placeholder: "Search like AMZN, GOOG, MSFT.....", autofocus: true, class: "form-control form-control-lg"   %>
-
+         <%= text_field_tag  :stock , params[:stock] , id: 'symbols', placeholder: "Search like AMZN, GOOG, MSFT.....", autofocus: true, class: "form-control form-control-lg"   %>
       </div>
       <div class="col-sm-3 no-left-padding">
        <%= button_tag type: :submit , class: "btn btn-success" do %>
